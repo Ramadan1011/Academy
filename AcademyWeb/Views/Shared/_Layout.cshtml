@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AcademyWeb</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/26.2.4/material.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebProject.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://cdn.syncfusion.com/ej2/26.2.4/dist/ej2.min.js"></script>
+
+    <style>
+        .nav-pills .nav-link.active {
+            background-color: lightsteelblue;
+        }
+
+        .nav-pills .nav-link:hover {
+            background-color: lightsteelblue; 
+            color: white; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+            <nav class="navbar nav-pills navbar-expand-sm bg-white navbar-light mb-3">
+                <ul class="navbar-nav ms-5">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark @(ViewContext.RouteData.Values["controller"].ToString() == "Course" ? "active" : "")" asp-area="" asp-controller="Course" asp-action="Index">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark @(ViewContext.RouteData.Values["controller"].ToString() == "Student" ? "active" : "")" asp-area="" asp-controller="Student" asp-action="Index">Students</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark @(ViewContext.RouteData.Values["controller"].ToString() == "Mentor" ? "active" : "")" asp-area="" asp-controller="Mentor" asp-action="Index">Mentors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark @(ViewContext.RouteData.Values["controller"].ToString() == "MentorCourse" ? "active" : "")" asp-area="" asp-controller="MentorCourse" asp-action="Index">Mentor & Course</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
